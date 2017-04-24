@@ -1,0 +1,30 @@
+﻿@model schoolsSystems.Models.School
+
+@{
+    ViewBag.Title = "Добавить школу";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="ah2">Добавить школу</h2>
+
+@using (Html.BeginForm("Edit","School",FormMethod.Post)){
+
+   <div>Школа</div>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            Имя @Html.EditorFor(model => model.Name)
+        </div>
+    <div>
+        
+        Город @Html.Action("DropMenu", "City", new { CityId = Model.CityId })
+    </div>
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+}
+
+
+
+

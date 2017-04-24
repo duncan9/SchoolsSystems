@@ -1,0 +1,8 @@
+﻿@model IEnumerable<schoolsSystems.Models.Form>
+
+@foreach (var form in Model)
+{
+    <div>
+        @Html.ActionLink(form.Name, "Index", "Pupil", new {SchoolId=ViewBag.schoolId,FormId=form.Id },null)
+    </div>
+}

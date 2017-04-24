@@ -1,0 +1,24 @@
+﻿@model schoolsSystems.Models.SchoolForm
+
+@{
+    ViewBag.Title = "КлассШколы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Класс Школы</h2>
+@using (Html.BeginForm("Edit", "SchoolForm", FormMethod.Post))
+{
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model=>model.SchoolId)
+
+    <div>
+        Класс @Html.Action("DropMenu", "Form", new { formId = Model.FormId })
+    </div>
+    <div>
+        Буква @Html.Action("DropMenu", "FormLetter", new { formLetterId = Model.FormLetterId})
+    </div>
+    <p>
+        <input type="submit" value="Сохранить" />
+    </p>
+}

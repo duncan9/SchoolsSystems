@@ -1,0 +1,5 @@
+﻿@model schoolsSystems.Models.CityDropMenu
+
+<div>
+    @Html.DropDownListFor(model => model.CityId, new SelectList(Model.cities.ToList(), "Id", "Name"), "Выберите город")
+</div>

@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EMModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="CityId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="City" Relationship="EMModel.FK__School__CityId__37A5467C" FromRole="School" ToRole="City" />
+    <NavigationProperty Name="Pupil" Relationship="EMModel.FK__Pupil__SchoolId__5DCAEF64" FromRole="School" ToRole="Pupil" />
+    <NavigationProperty Name="SchoolForm" Relationship="EMModel.FK__SchoolFor__Schoo__75A278F5" FromRole="School" ToRole="SchoolForm" />
+    <NavigationProperty Name="TimeTable" Relationship="EMModel.FK__TimeTable__Schoo__7A672E12" FromRole="School" ToRole="TimeTable" />
+  </EntityType>
+  <EntityContainer Name="EMEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="School" EntityType="Self.School" />
+    <EntitySet Name="City" EntityType="EMModel.City" />
+    <AssociationSet Name="FK__School__CityId__37A5467C" Association="EMModel.FK__School__CityId__37A5467C">
+      <End Role="City" EntitySet="City" />
+      <End Role="School" EntitySet="School" />
+    </AssociationSet>
+    <EntitySet Name="Form" EntityType="EMModel.Form" />
+    <EntitySet Name="Pupil" EntityType="EMModel.Pupil" />
+    <AssociationSet Name="FK__Pupil__SchoolId__5DCAEF64" Association="EMModel.FK__Pupil__SchoolId__5DCAEF64">
+      <End Role="School" EntitySet="School" />
+      <End Role="Pupil" EntitySet="Pupil" />
+    </AssociationSet>
+    <EntitySet Name="FormLetter" EntityType="EMModel.FormLetter" />
+    <EntitySet Name="SchoolForm" EntityType="EMModel.SchoolForm" />
+    <EntitySet Name="Subject" EntityType="EMModel.Subject" />
+    <EntitySet Name="TimeTable" EntityType="EMModel.TimeTable" />
+    <AssociationSet Name="FK__SchoolFor__FormI__76969D2E" Association="EMModel.FK__SchoolFor__FormI__76969D2E">
+      <End Role="Form" EntitySet="Form" />
+      <End Role="SchoolForm" EntitySet="SchoolForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SchoolFor__FormL__778AC167" Association="EMModel.FK__SchoolFor__FormL__778AC167">
+      <End Role="FormLetter" EntitySet="FormLetter" />
+      <End Role="SchoolForm" EntitySet="SchoolForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Pupil__SchoolFor__01142BA1" Association="EMModel.FK__Pupil__SchoolFor__01142BA1">
+      <End Role="SchoolForm" EntitySet="SchoolForm" />
+      <End Role="Pupil" EntitySet="Pupil" />
+    </AssociationSet>
+    <AssociationSet Name="FK__SchoolFor__Schoo__75A278F5" Association="EMModel.FK__SchoolFor__Schoo__75A278F5">
+      <End Role="School" EntitySet="School" />
+      <End Role="SchoolForm" EntitySet="SchoolForm" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TimeTable__Schoo__7A672E12" Association="EMModel.FK__TimeTable__Schoo__7A672E12">
+      <End Role="School" EntitySet="School" />
+      <End Role="TimeTable" EntitySet="TimeTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TimeTable__Schoo__7B5B524B" Association="EMModel.FK__TimeTable__Schoo__7B5B524B">
+      <End Role="SchoolForm" EntitySet="SchoolForm" />
+      <End Role="TimeTable" EntitySet="TimeTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="EMModel.FK__TimeTable__Subje__7C4F7684">
+      <End Role="Subject" EntitySet="Subject" />
+      <End Role="TimeTable" EntitySet="TimeTable" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="School" Relationship="EMModel.FK__School__CityId__37A5467C" FromRole="City" ToRole="School" />
+  </EntityType>
+  <Association Name="FK__School__CityId__37A5467C">
+    <End Type="EMModel.City" Role="City" Multiplicity="1" />
+    <End Type="EMModel.School" Role="School" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="School">
+        <PropertyRef Name="CityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Form">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SchoolForm" Relationship="EMModel.FK__SchoolFor__FormI__76969D2E" FromRole="Form" ToRole="SchoolForm" />
+  </EntityType>
+  <EntityType Name="Pupil">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirsName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="MiddleName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="School" Relationship="EMModel.FK__Pupil__SchoolId__5DCAEF64" FromRole="Pupil" ToRole="School" />
+    <Property Name="SchoolFormId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="SchoolForm" Relationship="EMModel.FK__Pupil__SchoolFor__01142BA1" FromRole="Pupil" ToRole="SchoolForm" />
+  </EntityType>
+  <Association Name="FK__Pupil__SchoolId__5DCAEF64">
+    <End Type="EMModel.School" Role="School" Multiplicity="1" />
+    <End Type="EMModel.Pupil" Role="Pupil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pupil">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="FormLetter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Letter" Type="String" Nullable="false" MaxLength="2" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="SchoolForm" Relationship="EMModel.FK__SchoolFor__FormL__778AC167" FromRole="FormLetter" ToRole="SchoolForm" />
+  </EntityType>
+  <EntityType Name="SchoolForm">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="FormId" Type="Int32" Nullable="false" />
+    <Property Name="FormLetterId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Form" Relationship="EMModel.FK__SchoolFor__FormI__76969D2E" FromRole="SchoolForm" ToRole="Form" />
+    <NavigationProperty Name="FormLetter" Relationship="EMModel.FK__SchoolFor__FormL__778AC167" FromRole="SchoolForm" ToRole="FormLetter" />
+    <NavigationProperty Name="Pupil" Relationship="EMModel.FK__Pupil__SchoolFor__01142BA1" FromRole="SchoolForm" ToRole="Pupil" />
+    <NavigationProperty Name="School" Relationship="EMModel.FK__SchoolFor__Schoo__75A278F5" FromRole="SchoolForm" ToRole="School" />
+    <NavigationProperty Name="TimeTable" Relationship="EMModel.FK__TimeTable__Schoo__7B5B524B" FromRole="SchoolForm" ToRole="TimeTable" />
+  </EntityType>
+  <EntityType Name="Subject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="TimeTable" Relationship="EMModel.FK__TimeTable__Subje__7C4F7684" FromRole="Subject" ToRole="TimeTable" />
+  </EntityType>
+  <EntityType Name="TimeTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" />
+    <Property Name="SchoolId" Type="Int32" Nullable="false" />
+    <Property Name="SchoolFormId" Type="Int32" Nullable="false" />
+    <Property Name="LessonNumber" Type="Int32" Nullable="false" />
+    <Property Name="DayOfWeek" Type="Int32" Nullable="false" />
+    <Property Name="SubjectId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="School" Relationship="EMModel.FK__TimeTable__Schoo__7A672E12" FromRole="TimeTable" ToRole="School" />
+    <NavigationProperty Name="SchoolForm" Relationship="EMModel.FK__TimeTable__Schoo__7B5B524B" FromRole="TimeTable" ToRole="SchoolForm" />
+    <NavigationProperty Name="Subject" Relationship="EMModel.FK__TimeTable__Subje__7C4F7684" FromRole="TimeTable" ToRole="Subject" />
+  </EntityType>
+  <Association Name="FK__SchoolFor__FormI__76969D2E">
+    <End Type="EMModel.Form" Role="Form" Multiplicity="1" />
+    <End Type="EMModel.SchoolForm" Role="SchoolForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Form">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SchoolForm">
+        <PropertyRef Name="FormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SchoolFor__FormL__778AC167">
+    <End Type="EMModel.FormLetter" Role="FormLetter" Multiplicity="1" />
+    <End Type="EMModel.SchoolForm" Role="SchoolForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormLetter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SchoolForm">
+        <PropertyRef Name="FormLetterId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Pupil__SchoolFor__01142BA1">
+    <End Type="EMModel.SchoolForm" Role="SchoolForm" Multiplicity="1" />
+    <End Type="EMModel.Pupil" Role="Pupil" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Pupil">
+        <PropertyRef Name="SchoolFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__SchoolFor__Schoo__75A278F5">
+    <End Type="EMModel.School" Role="School" Multiplicity="1" />
+    <End Type="EMModel.SchoolForm" Role="SchoolForm" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="SchoolForm">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TimeTable__Schoo__7A672E12">
+    <End Type="EMModel.School" Role="School" Multiplicity="1" />
+    <End Type="EMModel.TimeTable" Role="TimeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeTable">
+        <PropertyRef Name="SchoolId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TimeTable__Schoo__7B5B524B">
+    <End Type="EMModel.SchoolForm" Role="SchoolForm" Multiplicity="1" />
+    <End Type="EMModel.TimeTable" Role="TimeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SchoolForm">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeTable">
+        <PropertyRef Name="SchoolFormId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TimeTable__Subje__7C4F7684">
+    <End Type="EMModel.Subject" Role="Subject" Multiplicity="1" />
+    <End Type="EMModel.TimeTable" Role="TimeTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subject">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="TimeTable">
+        <PropertyRef Name="SubjectId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

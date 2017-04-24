@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="69244595a8324eb580c629ebbc5303a7" Name="Diagram1">
+        <EntityTypeShape EntityType="EMModel.School" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMModel.City" Width="1.5" PointX="3.25" PointY="1" />
+        <AssociationConnector Association="EMModel.FK__School__CityId__37A5467C" />
+        <EntityTypeShape EntityType="EMModel.Form" Width="1.5" PointX="5.125" PointY="0.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="EMModel.Pupil" Width="1.5" PointX="7.375" PointY="1.25" />
+        <AssociationConnector Association="EMModel.FK__Pupil__SchoolId__5DCAEF64" />
+        <EntityTypeShape EntityType="EMModel.FormLetter" Width="1.5" PointX="6.625" PointY="4.5" />
+        <EntityTypeShape EntityType="EMModel.SchoolForm" Width="1.5" PointX="9.25" PointY="0.625" />
+        <EntityTypeShape EntityType="EMModel.Subject" Width="1.5" PointX="8.875" PointY="4.5" />
+        <EntityTypeShape EntityType="EMModel.TimeTable" Width="1.5" PointX="11.125" PointY="0.875" />
+        <AssociationConnector Association="EMModel.FK__SchoolFor__FormI__76969D2E" />
+        <AssociationConnector Association="EMModel.FK__SchoolFor__FormL__778AC167" />
+        <AssociationConnector Association="EMModel.FK__SchoolFor__Schoo__75A278F5" />
+        <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7A672E12" />
+        <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7B5B524B" />
+        <AssociationConnector Association="EMModel.FK__TimeTable__Subje__7C4F7684" />
+        <AssociationConnector Association="EMModel.FK__SchoolFor__FormI__76969D2E" />
+        <AssociationConnector Association="EMModel.FK__SchoolFor__FormL__778AC167" />
+        <AssociationConnector Association="EMModel.FK__Pupil__SchoolFor__01142BA1" />
+        <AssociationConnector Association="EMModel.FK__SchoolFor__Schoo__75A278F5" />
+        <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7A672E12" />
+        <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7B5B524B" />
+        <AssociationConnector Association="EMModel.FK__TimeTable__Subje__7C4F7684" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

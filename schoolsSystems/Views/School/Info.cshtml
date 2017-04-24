@@ -1,0 +1,23 @@
+﻿@model schoolsSystems.Models.School
+
+@{
+    ViewBag.Title = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h2 class="ah2">Страница Школы</h2>
+    <div>
+        Имя: @Model.Name
+    </div>
+    <div>
+        Город: @Model.City.name
+    </div>
+    @Html.ActionLink("Добавить класс", "Create", "SchoolForm", new {SchoolId = Model.Id},null)
+    
+    <div>
+        @Html.Action("List", "SchoolForm", new {SchoolId= Model.Id})
+    </div>
+</div>
+
+
+

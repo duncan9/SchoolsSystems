@@ -1,0 +1,10 @@
+﻿@model IEnumerable<schoolsSystems.Models.City>
+
+
+<h2>Index</h2>
+@foreach (var c in Model)
+{
+    <div>
+        @Html.ActionLink(c.name,"Index",c.Id)
+    </div>
+}

@@ -1,0 +1,5 @@
+﻿@model schoolsSystems.Models.DropMenu.DropMenu<schoolsSystems.Models.FormLetter>
+
+<div>
+    @Html.DropDownList("FormLetterId", new SelectList(Model.list, "Id", "Letter"), "Выберите букву", new {@id = "FormLetterId" })
+</div>

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<schoolsSystems.Models.Pupil>
+
+@{
+    ViewBag.Title = "Cписок учеников";
+}
+
+<h2 class="ah2">Список учеников</h2>
+<div>
+    @Html.ActionLink("Добавить ученика", "Create", "Pupil", new { SchoolId = ViewBag.SchoolId,SchoolFormId=ViewBag.SchoolFormId }, null)
+</div>
+@foreach(var p in Model){
+    <div>
+        @Html.ActionLink(p.LastName + " " + p.FirsName, "Info", new {p.Id}) 
+    </div>
+}
