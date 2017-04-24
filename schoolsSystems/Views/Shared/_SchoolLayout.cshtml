@@ -1,0 +1,24 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/Styles.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+    <link rel="shortcut icon" href="~/Content/Images/emblema.png" type="image/x-icon">
+</head>
+<body>
+    <div class="header">
+        <h3 class="ah1">@Html.ActionLink("Система Гос учр", "Index", "Home")</h3>
+
+
+    </div>
+    <div>@RenderBody()</div>
+
+</body>
+</html>

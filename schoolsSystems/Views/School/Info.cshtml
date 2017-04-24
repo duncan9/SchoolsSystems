@@ -2,12 +2,20 @@
 
 @{
     ViewBag.Title = Model.Name;
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
 <div>
-    <h2 class="ah2">Страница Школы</h2>
+    <h1 class="ah2">@Model.Name</h1>
     <div>
         Имя: @Model.Name
+    </div>
+    <div class="menu">
+        <div class="left-column">@Html.ActionLink("Новости", "News")</div>
+        <div class="center-left">@Html.ActionLink("Расписание", "TimeTable")</div>
+        <div class="center-right">@Html.ActionLink("Учителя", "Teachers")</div>
+        <div class="right-column">@Html.ActionLink("Контакты", "Contacts")</div>
+        <div class="right-column">@Html.ActionLink("Учениики", "Pupils")</div>
+        <div class="right-column">@Html.ActionLink("Документы", "Docs")</div>
     </div>
     <div>
         Город: @Model.City.name
