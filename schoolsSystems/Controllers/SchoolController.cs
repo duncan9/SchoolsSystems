@@ -53,31 +53,37 @@ namespace schoolsSystems.Controllers
 
         public ActionResult News(int schoolid = 0)
         {
+            ViewBag.BodyTitle = "Новости";
             return View();
         }
 
         public ActionResult TimeTable()
         {
+            ViewBag.BodyTitle = "Расписание";
             return View();
         }
 
         public ActionResult Teachers()
         {
+            ViewBag.BodyTitle = "Учителя";
             return View();
         }
 
         public ActionResult Contacts()
         {
+            ViewBag.BodyTitle = "Контакты";
             return View();
         }
 
         public ActionResult Pupils()
         {
+            ViewBag.BodyTitle = "Ученики";
             return View();
         }
 
         public ActionResult Docs()
         {
+            ViewBag.BodyTitle = "Документы";
             return View();
         }
 
