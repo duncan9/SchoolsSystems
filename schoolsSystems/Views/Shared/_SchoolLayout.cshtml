@@ -14,11 +14,19 @@
 </head>
 <body>
     <div class="header">
-        <h3 class="ah1">@Html.ActionLink("Система Гос учр", "Index", "Home")</h3>
-
-
+        <h1 class="ah1">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home")</h1>
     </div>
-    <div>@RenderBody()</div>
-
+    <h2 class="ah2">@ViewBag.BodyTitle</h2>
+    <div class="menu">
+        <div>@Html.ActionLink("Новости", "News", "School", null, new { @class = "block1", @title = "Новости связанные со школой и образованием" })</div>
+        <div>@Html.ActionLink("Расписание", "TimeTable", "School", null, new { @class = "block2", @title = "Расписание уроков и школьных мероприятий" })</div>
+        <div>@Html.ActionLink("Учителя", "Teachers", "School", null, new { @class = "block3", @title = "Список работников школы" })</div>
+        <div>@Html.ActionLink("Контакты", "Contacts", "School", null, new { @class = "block4", @title = "Контакты для свзи" })</div>
+        <div>@Html.ActionLink("Ученики", "Pupils", "School", null, new { @class = "block5", @title = "Список учеников школы" })</div>
+        <div>@Html.ActionLink("Документы", "Docs", "School", null, new { @class = "block6", @title = "Основная документация" })</div>
+    </div>
+    <div class="left-menu"> Меню </div>
+    <div class="content">@RenderBody()</div>
+    <div class="adv"> Реклама </div>
 </body>
 </html>

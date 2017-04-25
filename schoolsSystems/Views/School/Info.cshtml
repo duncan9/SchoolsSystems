@@ -5,23 +5,11 @@
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
 <div>
-    <h1 class="ah2">@Model.Name</h1>
-    <div>
-        Имя: @Model.Name
+    <div class="content"> Контент </div>
+    <div class="butt">
+        @Html.ActionLink("Добавить класс", "Create", "SchoolForm", new { SchoolId = Model.Id }, new { @class = "add" })
     </div>
-    <div class="menu">
-        <div class="left-column">@Html.ActionLink("Новости", "News")</div>
-        <div class="center-left">@Html.ActionLink("Расписание", "TimeTable")</div>
-        <div class="center-right">@Html.ActionLink("Учителя", "Teachers")</div>
-        <div class="right-column">@Html.ActionLink("Контакты", "Contacts")</div>
-        <div class="right-column">@Html.ActionLink("Учениики", "Pupils")</div>
-        <div class="right-column">@Html.ActionLink("Документы", "Docs")</div>
-    </div>
-    <div>
-        Город: @Model.City.name
-    </div>
-    @Html.ActionLink("Добавить класс", "Create", "SchoolForm", new {SchoolId = Model.Id},null)
-    
+    <br>
     <div>
         @Html.Action("List", "SchoolForm", new {SchoolId= Model.Id})
     </div>

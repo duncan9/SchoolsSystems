@@ -22,7 +22,16 @@
        </div>
        
     </div> 
-      <div>@RenderBody()</div>
-    
+
+    <div class="menu">
+        <div>@Html.ActionLink("Новости", "News", "Home", null, new { @class = "left-column", @title = "Новости связанные с образованием" })</div>
+        <div>@Html.ActionLink("Школы", "Index", "School", null, new { @class = "center-left", @title = "Список школ РБ" })</div>
+        <div>@Html.ActionLink("О нас", "Info", "Home" ,null, new { @class = "center-right", @title = "Информация о сайте" })</div>
+        <div>@Html.ActionLink("Конакты", "Contacts" , "Home" , null, new { @class = "right-column", @title = "Контакты разработчика сайта" })</div>
+    </div>
+    <h2 class="ah2">@ViewBag.BodyTitle</h2>
+    <div class="left-menu"> Меню </div>
+    <div class="content">@RenderBody()</div> 
+    <div class="adv"> Реклама </div>
 </body>
 </html>
