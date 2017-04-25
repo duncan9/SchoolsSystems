@@ -5,7 +5,6 @@
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
 <div>
-    <div class="content"> Контент </div>
     <div class="butt">
         @Html.ActionLink("Добавить класс", "Create", "SchoolForm", new { SchoolId = Model.Id }, new { @class = "add" })
     </div>
