@@ -280,7 +280,27 @@
   <ItemGroup>
     <Content Include="Views\Home\Contacts.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Shared\_SchoolLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\School\News.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\School\TimeTable.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\School\Teachers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\School\Contacts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\School\Pupils.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\School\Docs.cshtml" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

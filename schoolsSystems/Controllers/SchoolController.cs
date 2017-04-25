@@ -19,6 +19,7 @@ namespace schoolsSystems.Controllers
         }
         public ActionResult Index()
         {
+            ViewBag.BodyTitle = "Школы";
             IEnumerable<City> cities = db.City;
             return View(cities);
         }
@@ -32,6 +33,8 @@ namespace schoolsSystems.Controllers
         {
             School school = db.School.FirstOrDefault(s => s.Id == id);
             ViewBag.SchoolId = id;
+            ViewBag.Title = school.Name;
+            ViewBag.BodyTitle = school.Name;
             return View(school);
         }
         public ActionResult Edit(School school)
@@ -47,6 +50,37 @@ namespace schoolsSystems.Controllers
         {
             return View("Edit",new School());
         }
+
+        public ActionResult News(int schoolid = 0)
+        {
+            return View();
+        }
+
+        public ActionResult TimeTable()
+        {
+            return View();
+        }
+
+        public ActionResult Teachers()
+        {
+            return View();
+        }
+
+        public ActionResult Contacts()
+        {
+            return View();
+        }
+
+        public ActionResult Pupils()
+        {
+            return View();
+        }
+
+        public ActionResult Docs()
+        {
+            return View();
+        }
+
         public PartialViewResult DropMenu(int SchoolId)
         {
             return PartialView(new DropMenu<School> { Id = SchoolId, list = db.School.ToList() });
