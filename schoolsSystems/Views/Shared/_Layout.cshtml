@@ -8,30 +8,36 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="система государственных учреждений, система школ, школы рб, школы республики беларусь, школа, добавить школу, сайт для школы, образование, образования">
+    <meta name="description" content="Сайт посвящен системе Государственных учреждений образования Республики Беларусь">
     <link href="~/Content/Styles.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
     <link rel="shortcut icon" href="~/Content/Images/emblema.png" type="image/x-icon">
 </head>
-<body>
-    <div class="header">
+<body id="up">
+    <div id="capMain">
+        <div id="cap">
       <h1 class="ah1">@Html.ActionLink("ГЛАВНАЯ","Index","Home")</h1>
        <div class="vk">
            <a href="https://vk.com/aleksey_tihonovich" title="Алексей Тихонович">
                <img class="vk" src="~/Content/Images/vk.png" />
            </a>
        </div>
-       
+        </div>
     </div> 
+   
+        <div class="menu">
+            <div>@Html.ActionLink("Новости", "News", "Home", null, new { @class = "left-column", @title = "Новости связанные с образованием" })</div>
+            <div>@Html.ActionLink("Школы", "Index", "School", null, new { @class = "center-left", @title = "Список школ РБ" })</div>
+            <div>@Html.ActionLink("О нас", "Info", "Home", null, new { @class = "center-right", @title = "Информация о сайте" })</div>
+            <div>@Html.ActionLink("Конакты", "Contacts", "Home", null, new { @class = "right-column", @title = "Контакты разработчика сайта" })</div>
+        </div>
 
-    <div class="menu">
-        <div>@Html.ActionLink("Новости", "News", "Home", null, new { @class = "left-column", @title = "Новости связанные с образованием" })</div>
-        <div>@Html.ActionLink("Школы", "Index", "School", null, new { @class = "center-left", @title = "Список школ РБ" })</div>
-        <div>@Html.ActionLink("О нас", "Info", "Home" ,null, new { @class = "center-right", @title = "Информация о сайте" })</div>
-        <div>@Html.ActionLink("Конакты", "Contacts" , "Home" , null, new { @class = "right-column", @title = "Контакты разработчика сайта" })</div>
-    </div>
+
     <h2 class="ah2">@ViewBag.BodyTitle</h2>
     <div class="left-menu"> Меню </div>
     <div class="content">@RenderBody()</div> 
     <div class="adv"> Реклама </div>
+    <a href="#up">Вверх</a>
 </body>
 </html>
