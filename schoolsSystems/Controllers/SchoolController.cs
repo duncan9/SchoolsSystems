@@ -27,12 +27,13 @@ namespace schoolsSystems.Controllers
         {
             IEnumerable<School> schools = db.School.Where(s=>s.CityId==id).ToList();
             ViewBag.City = db.City.Where(c => c.Id == id).FirstOrDefault().name;
+            ViewBag.BodyTitle = "Список школ города " + ViewBag.City;
             return View(schools);
         }
         public ActionResult Info(int id)
         {
             School school = db.School.FirstOrDefault(s => s.Id == id);
-            ViewBag.SchoolId = id;
+            ViewData.Add("school", school);
             ViewBag.Title = school.Name;
             ViewBag.BodyTitle = school.Name;
             return View(school);
@@ -57,32 +58,42 @@ namespace schoolsSystems.Controllers
             return View();
         }
 
-        public ActionResult TimeTable()
+        public ActionResult TimeTable(int schoolId=0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
             ViewBag.BodyTitle = "Расписание";
-            return View();
+            return View(db.SchoolForm.Where(sf => sf.SchoolId == schoolId).ToList());
         }
 
-        public ActionResult Teachers()
+        public ActionResult Teachers(int schoolId = 0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
             ViewBag.BodyTitle = "Учителя";
             return View();
         }
 
-        public ActionResult Contacts()
+        public ActionResult Contacts(int schoolId = 0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
             ViewBag.BodyTitle = "Контакты";
             return View();
         }
 
-        public ActionResult Pupils()
+        public ActionResult Pupils(int schoolId = 0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
             ViewBag.BodyTitle = "Ученики";
-            return View();
+            return View(db.SchoolForm.Where(sf => sf.SchoolId == schoolId).ToList());
         }
 
-        public ActionResult Docs()
+        public ActionResult Docs(int schoolId = 0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
             ViewBag.BodyTitle = "Документы";
             return View();
         }

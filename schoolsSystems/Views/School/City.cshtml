@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<schoolsSystems.Models.School>
 @{
-    ViewBag.Title = "Список школ города";
+    ViewBag.Title = ViewBag.BodyTitle;
 }
 
-<h2 class="ah2">Список школ города @ViewBag.City</h2>
 @foreach (var s in Model)
 {
     <div>

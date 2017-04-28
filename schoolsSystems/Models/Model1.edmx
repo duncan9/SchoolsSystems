@@ -65,7 +65,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="SchoolId" Type="int" Nullable="false" />
           <Property Name="SchoolFormId" Type="int" Nullable="false" />
           <Property Name="LessonNumber" Type="int" Nullable="false" />
@@ -144,7 +144,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TimeTable__Schoo__7A672E12">
+        <Association Name="FK__TimeTable__Schoo__160F4887">
           <End Role="School" Type="Self.School" Multiplicity="1" />
           <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -156,7 +156,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TimeTable__Schoo__7B5B524B">
+        <Association Name="FK__TimeTable__Schoo__17036CC0">
           <End Role="SchoolForm" Type="Self.SchoolForm" Multiplicity="1" />
           <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -168,7 +168,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__TimeTable__Subje__7C4F7684">
+        <Association Name="FK__TimeTable__Subje__17F790F9">
           <End Role="Subject" Type="Self.Subject" Multiplicity="1" />
           <End Role="TimeTable" Type="Self.TimeTable" Multiplicity="*" />
           <ReferentialConstraint>
@@ -213,15 +213,15 @@
             <End Role="School" EntitySet="School" />
             <End Role="SchoolForm" EntitySet="SchoolForm" />
           </AssociationSet>
-          <AssociationSet Name="FK__TimeTable__Schoo__7A672E12" Association="Self.FK__TimeTable__Schoo__7A672E12">
+          <AssociationSet Name="FK__TimeTable__Schoo__160F4887" Association="Self.FK__TimeTable__Schoo__160F4887">
             <End Role="School" EntitySet="School" />
             <End Role="TimeTable" EntitySet="TimeTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__TimeTable__Schoo__7B5B524B" Association="Self.FK__TimeTable__Schoo__7B5B524B">
+          <AssociationSet Name="FK__TimeTable__Schoo__17036CC0" Association="Self.FK__TimeTable__Schoo__17036CC0">
             <End Role="SchoolForm" EntitySet="SchoolForm" />
             <End Role="TimeTable" EntitySet="TimeTable" />
           </AssociationSet>
-          <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="Self.FK__TimeTable__Subje__7C4F7684">
+          <AssociationSet Name="FK__TimeTable__Subje__17F790F9" Association="Self.FK__TimeTable__Subje__17F790F9">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="TimeTable" EntitySet="TimeTable" />
           </AssociationSet>

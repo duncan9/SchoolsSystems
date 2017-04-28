@@ -124,12 +124,14 @@
     <Compile Include="Controllers\SchoolController.cs" />
     <Compile Include="Controllers\SchoolFormController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\TimeTableController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\City.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\DayOfTimeTable.cs" />
     <Compile Include="Models\DropMenu\CityDropMenu.cs" />
     <Compile Include="Models\DropMenu\DropMenu.cs" />
     <Compile Include="Models\DropMenu\FormDropMenu.cs" />
@@ -281,25 +283,35 @@
     <Content Include="Views\Home\Contacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Shared\_SchoolLayout.cshtml" />
+    <Content Include="Views\TimeTable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\School\News.cshtml" />
+    <Content Include="Views\TimeTable\Edit.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_SchoolLayout.cshtml">
+      <SubType>Code</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\School\TimeTable.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\School\Teachers.cshtml" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\School\Contacts.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\School\Pupils.cshtml" />
+    <Content Include="Views\School\Docs.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\School\Docs.cshtml" />
+    <Content Include="Views\School\News.cshtml" />
+    <Content Include="Views\School\Pupils.cshtml" />
+    <Content Include="Views\School\Teachers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TimeTable\ListOfDay.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TimeTable\EditorTemplates\TimeTable.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

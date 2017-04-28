@@ -14,11 +14,14 @@ namespace schoolsSystems.Controllers
         {
             db = new EMEntities();
         }
-        public ActionResult Index(int SchoolId=0,int SchoolFormId=0)
+        public ActionResult Index(int schoolId=0,int SchoolFormId=0)
         {
-            List<Pupil> pupils = db.Pupil.Where(p => p.SchoolId == SchoolId && p.SchoolFormId == SchoolFormId).ToList();
-            ViewBag.SchoolId = SchoolId;
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
+            List<Pupil> pupils = db.Pupil.Where(p => p.SchoolId == schoolId && p.SchoolFormId == SchoolFormId).ToList();
             ViewBag.SchoolFormId = SchoolFormId;
+            ViewBag.SchoolId = school.Id;
+            ViewBag.BodyTitle = "Список учеников";
             return View(pupils);
         }
         public ActionResult Edit(Pupil pupil)
@@ -30,10 +33,13 @@ namespace schoolsSystems.Controllers
             }
             return RedirectToAction("Index", new {SchoolId=pupil.SchoolId,SchoolFormId=pupil.SchoolFormId });
         }
-        public ActionResult Create(int SchoolId=0,int SchoolFormId=0)
+        public ActionResult Create(int schoolId=0,int SchoolFormId=0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolId);
+            ViewData.Add("school", school);
+            ViewBag.BodyTitle = "Редактирование ученика";
             Pupil p = new Pupil();
-            p.SchoolId = SchoolId;
+            p.SchoolId = schoolId;
             p.SchoolFormId=SchoolFormId;
             return View("Edit", p);
         }

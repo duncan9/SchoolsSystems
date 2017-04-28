@@ -2,9 +2,9 @@
 
 @{
     ViewBag.Title = "Cписок учеников";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
 
-<h2 class="ah2">Список учеников</h2>
 <div>
     @Html.ActionLink("Добавить ученика", "Create", "Pupil", new { SchoolId = ViewBag.SchoolId,SchoolFormId=ViewBag.SchoolFormId }, null)
 </div>
