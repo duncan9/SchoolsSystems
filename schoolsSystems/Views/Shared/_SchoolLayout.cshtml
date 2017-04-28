@@ -8,13 +8,17 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="система государственных учреждений, система школ, школы рб, школы республики беларусь, школа, добавить школу, сайт для школы, образование, образования, добавить класс, ученики, учителя, расписание школы">
+    <meta name="description" content="Сайт посвящен системе УО schoolname cityname">
     <link href="~/Content/Styles.css" rel="stylesheet" />
     <title>@ViewBag.Title</title>
     <link rel="shortcut icon" href="~/Content/Images/emblema.png" type="image/x-icon">
 </head>
-<body>
-    <div class="header">
+<body id="up">
+    <div id="capMain">
+    <div id="cap">
         <h1 class="ah1">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home") @ViewBag.BodyTitle</h1>
+    </div>
     </div>
     <div class="menu">
         <div>@Html.ActionLink("Новости", "News", "School", null, new { @class = "block1", @title = "Новости связанные со школой и образованием" })</div>
@@ -28,5 +32,10 @@
     <div class="left-menu"> Меню </div>
     <div class="content">@RenderBody()</div>
     <div class="adv"> Реклама </div>
+    <div id="bupMain">
+        <div id="bup">
+            <a href="#up">Вверх</a>
+        </div>
+    </div>
 </body>
 </html>
