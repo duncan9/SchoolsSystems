@@ -3,6 +3,6 @@
 @foreach (var form in Model)
 {
     <div>
-        @Html.ActionLink(form.FormId+form.FormLetter.Letter, "Index", "Pupil", new { SchoolId = form.SchoolId, SchoolFormId = form.Id }, null)
+        @Html.ActionLink(form.Name, "Index", "Pupil", new { SchoolId = form.SchoolId, SchoolFormId = form.Id }, null)
     </div>
 }

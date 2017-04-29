@@ -1,0 +1,17 @@
+﻿@model schoolsSystems.Models.DayOfTimeTable
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
+}
+
+<h2>Edit</h2>
+@using (Html.BeginForm("Save","TimeTable",FormMethod.Post))
+{   
+    @Html.HiddenFor(m=>m.SchoolId)
+    @Html.HiddenFor(m=>m.SchoolFormId)
+    <div>
+        @Html.EditorFor(m=>m.listOfDay)
+    </div>
+    <input type="submit" name="Сохранить"/>
+}

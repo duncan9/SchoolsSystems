@@ -1,6 +1,11 @@
-﻿@{
+﻿@model IEnumerable<schoolsSystems.Models.SchoolForm>
+@{
     ViewBag.Title = "Расписание";
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
-
+@foreach (var sf in Model)
+{
+    <div>@Html.ActionLink(sf.Name, "Index", "TimeTable", new { schoolId = @sf.SchoolId, schoolFormId = @sf.Id }, null)</div>
+    
+}
 

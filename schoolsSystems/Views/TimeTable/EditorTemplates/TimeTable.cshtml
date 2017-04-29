@@ -1,0 +1,10 @@
+﻿@model schoolsSystems.Models.TimeTable
+
+
+<div>урок @Model.LessonNumber
+    @Html.HiddenFor(t=>t.SchoolId)
+    @Html.HiddenFor(t=>t.LessonNumber)
+    @Html.HiddenFor(t=>t.SchoolFormId)
+    @Html.HiddenFor(t=>t.DayOfWeek)
+    @Html.DropDownListFor(t=>t.SubjectId,new SelectList((List<schoolsSystems.Models.Subject>)ViewData["subjects"],"Id","Name"),"Выберите урок")
+</div>

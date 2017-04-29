@@ -24,7 +24,7 @@ namespace schoolsSystems.Models
         public int SchoolId { get; set; }
         public int FormId { get; set; }
         public int FormLetterId { get; set; }
-
+        
         public string Name
         {
             get

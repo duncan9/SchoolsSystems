@@ -1,5 +1,6 @@
 ﻿@{
     Layout = null;
+    schoolsSystems.Models.School school = (schoolsSystems.Models.School)ViewData["school"];
 }
 
 <!DOCTYPE html>
@@ -17,16 +18,16 @@
 <body id="up">
     <div id="capMain">
     <div id="cap">
-        <h1 class="ah1">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home") @ViewBag.BodyTitle</h1>
+        <h1 class="ah1">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home") @school.Name @school.City.name</h1>
     </div>
     </div>
     <div class="menu">
-        <div>@Html.ActionLink("Новости", "News", "School", null, new { @class = "block1", @title = "Новости связанные со школой и образованием" })</div>
-        <div>@Html.ActionLink("Расписание", "TimeTable", "School", null, new { @class = "block2", @title = "Расписание уроков и школьных мероприятий" })</div>
-        <div>@Html.ActionLink("Учителя", "Teachers", "School", null, new { @class = "block3", @title = "Список работников школы" })</div>
-        <div>@Html.ActionLink("Контакты", "Contacts", "School", null, new { @class = "block4", @title = "Контакты для свзи" })</div>
-        <div>@Html.ActionLink("Ученики", "Pupils", "School", null, new { @class = "block5", @title = "Список учеников школы" })</div>
-        <div>@Html.ActionLink("Документы", "Docs", "School", null, new { @class = "block6", @title = "Основная документация" })</div>
+        <div>@Html.ActionLink("Новости", "News", "School", new { schoolId = school.Id }, new { @class = "block1", @title = "Новости связанные со школой и образованием" })</div>
+        <div>@Html.ActionLink("Расписание", "TimeTable", "School", new {schoolId=school.Id }, new { @class = "block2", @title = "Расписание уроков и школьных мероприятий" })</div>
+        <div>@Html.ActionLink("Учителя", "Teachers", "School", new { schoolId = school.Id }, new { @class = "block3", @title = "Список работников школы" })</div>
+        <div>@Html.ActionLink("Контакты", "Contacts", "School", new { schoolId = school.Id }, new { @class = "block4", @title = "Контакты для свзи" })</div>
+        <div>@Html.ActionLink("Ученики", "Pupils", "School", new { schoolId = school.Id }, new { @class = "block5", @title = "Список учеников школы" })</div>
+        <div>@Html.ActionLink("Документы", "Docs", "School", new { schoolId = school.Id }, new { @class = "block6", @title = "Основная документация" })</div>
     </div>
     <h2 class="ah2">@ViewBag.BodyTitle</h2>
     <div class="left-menu"> Меню </div>

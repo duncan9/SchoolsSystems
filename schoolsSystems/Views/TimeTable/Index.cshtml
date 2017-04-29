@@ -1,0 +1,29 @@
+﻿@model IEnumerable<schoolsSystems.Models.TimeTable>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
+}
+
+<h2>Расписание</h2>
+<div>Понедельник @Html.ActionLink("edit", "Edit", new { schoolId=ViewBag.schoolId,schoolFormId=ViewBag.schoolFormId,dayOfWeek=1})
+    @Html.Action("ListOfDay", new {timeTable=@Model,dayOfWeek=1})
+    </div>
+<div>Вторник
+@Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 2 })
+    </div>
+<div>
+    Среда
+    @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 3 })
+</div>
+<div>
+    Четверг
+    @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 4 })
+</div>
+<div>
+    Пятница
+    @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 5 })
+</div>
+<div>
+    Суббота
+    @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 6 })
+</div>

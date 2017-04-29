@@ -1,0 +1,7 @@
+﻿@model IEnumerable<schoolsSystems.Models.TimeTable>
+@for (int i = 1; i < 10; i++)
+{
+    schoolsSystems.Models.TimeTable lesson = Model.FirstOrDefault(tt => tt.LessonNumber == i);
+    <div>@i @(lesson == null ? "-" : lesson.Subject.Name)</div>
+}
+
