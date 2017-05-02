@@ -40,6 +40,7 @@ namespace schoolsSystems.Controllers
         }
         public ActionResult Edit(School school)
         {
+            ViewBag.BodyTitle = "Добавить школу";
             if (ModelState.IsValid)
             {
                 db.School.Add(school);
@@ -49,13 +50,16 @@ namespace schoolsSystems.Controllers
         }
         public ActionResult Create()
         {
+            ViewBag.BodyTitle = "Добавить школу";
             return View("Edit",new School());
         }
 
         public ActionResult News(int schoolid = 0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == schoolid);
+            ViewData.Add("school", school);
             ViewBag.BodyTitle = "Новости";
-            return View();
+            return RedirectToAction("Index", "News", new { SchoolId = schoolid });
         }
 
         public ActionResult TimeTable(int schoolId=0)
@@ -87,6 +91,7 @@ namespace schoolsSystems.Controllers
             School school = db.School.FirstOrDefault(s => s.Id == schoolId);
             ViewData.Add("school", school);
             ViewBag.BodyTitle = "Ученики";
+            ViewBag.SchoolId = school.Id;
             return View(db.SchoolForm.Where(sf => sf.SchoolId == schoolId).ToList());
         }
 

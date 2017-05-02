@@ -19,12 +19,11 @@ namespace schoolsSystems.Models
             this.Pupil = new HashSet<Pupil>();
             this.TimeTable = new HashSet<TimeTable>();
         }
-
+    
         public int Id { get; set; }
         public int SchoolId { get; set; }
         public int FormId { get; set; }
         public int FormLetterId { get; set; }
-        
         public string Name
         {
             get
@@ -32,7 +31,6 @@ namespace schoolsSystems.Models
                 return string.Format("{0} {1}", FormId, FormLetter.Letter);
             }
         }
-    
         public virtual Form Form { get; set; }
         public virtual FormLetter FormLetter { get; set; }
         public virtual ICollection<Pupil> Pupil { get; set; }

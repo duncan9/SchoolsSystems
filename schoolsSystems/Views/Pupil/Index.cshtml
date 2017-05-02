@@ -4,10 +4,11 @@
     ViewBag.Title = "Cписок учеников";
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
-
+<br>
 <div>
-    @Html.ActionLink("Добавить ученика", "Create", "Pupil", new { SchoolId = ViewBag.SchoolId,SchoolFormId=ViewBag.SchoolFormId }, null)
+    @Html.ActionLink("Добавить ученика", "Create", "Pupil", new { SchoolId = ViewBag.SchoolId, SchoolFormId = ViewBag.SchoolFormId }, new { @class = "add" })
 </div>
+<br>
 @foreach(var p in Model){
     <div>
         @Html.ActionLink(p.LastName + " " + p.FirsName, "Info", new {p.Id}) 

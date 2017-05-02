@@ -1,0 +1,16 @@
+﻿@model IEnumerable<schoolsSystems.Models.News>
+@{
+    ViewBag.Title = "Новости";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
+}
+<br>
+<div>
+    @Html.ActionLink("Добавить новость", "Create", "News", new { SchoolId = ViewBag.SchoolId }, new { @class = "add" })
+</div>
+<br>
+@foreach (var s in Model.Reverse())
+{
+<div>
+   @s.HeadText @s.NewsText
+</div>
+}

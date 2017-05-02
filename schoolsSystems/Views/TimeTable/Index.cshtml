@@ -1,29 +1,29 @@
 ﻿@model IEnumerable<schoolsSystems.Models.TimeTable>
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Расписание";
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
-
-<h2>Расписание</h2>
-<div>Понедельник @Html.ActionLink("edit", "Edit", new { schoolId=ViewBag.schoolId,schoolFormId=ViewBag.schoolFormId,dayOfWeek=1})
+<div class="monday">
+    Понедельник @Html.ActionLink("(редактировать)", "Edit", new { schoolId=ViewBag.schoolId,schoolFormId=ViewBag.schoolFormId,dayOfWeek=1})
     @Html.Action("ListOfDay", new {timeTable=@Model,dayOfWeek=1})
-    </div>
-<div>Вторник
-@Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 2 })
-    </div>
-<div>
-    Среда
+</div>
+<div class="tuesday">
+    Вторник @Html.ActionLink("(редактировать)", "Edit", new { schoolId = ViewBag.schoolId, schoolFormId = ViewBag.schoolFormId, dayOfWeek = 2 })
+    @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 2 })
+</div>
+<div class="wednesday">
+    Среда @Html.ActionLink("(редактировать)", "Edit", new { schoolId = ViewBag.schoolId, schoolFormId = ViewBag.schoolFormId, dayOfWeek = 3 })
     @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 3 })
 </div>
-<div>
-    Четверг
+<div class="thursday">
+    Четверг @Html.ActionLink("(редактировать)", "Edit", new { schoolId = ViewBag.schoolId, schoolFormId = ViewBag.schoolFormId, dayOfWeek = 4 })
     @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 4 })
 </div>
-<div>
-    Пятница
+<div class="friday">
+    Пятница @Html.ActionLink("(редактировать)", "Edit", new { schoolId = ViewBag.schoolId, schoolFormId = ViewBag.schoolFormId, dayOfWeek = 5 })
     @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 5 })
 </div>
-<div>
-    Суббота
+<div class="saturday">
+    Суббота @Html.ActionLink("(редактировать)", "Edit", new { schoolId = ViewBag.schoolId, schoolFormId = ViewBag.schoolFormId, dayOfWeek = 6 })
     @Html.Action("ListOfDay", new { timeTable = @Model, dayOfWeek = 6 })
 </div>

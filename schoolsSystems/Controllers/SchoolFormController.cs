@@ -20,15 +20,19 @@ namespace schoolsSystems.Controllers
         }
         public ActionResult Edit(SchoolForm schoolForm)
         {
+            ViewBag.BodyTitle = "Добавить класс";
             if (ModelState.IsValid)
             {
                 db.SchoolForm.Add(schoolForm);
                 db.SaveChanges();
             }
-            return RedirectToAction("Info","School",new {id =schoolForm.SchoolId});
+            return RedirectToAction("Pupils","School",new {schoolId = schoolForm.SchoolId});
         }
         public ActionResult Create(int SchoolId = 0, int SchoolFormId = 0)
         {
+            School school = db.School.FirstOrDefault(s => s.Id == SchoolId);
+            ViewData.Add("school", school);
+            ViewBag.BodyTitle = "Добавить класс";
             SchoolForm sf = new SchoolForm();
             sf.SchoolId = SchoolId;
             return View("Edit", sf);

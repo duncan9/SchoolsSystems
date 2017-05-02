@@ -4,15 +4,5 @@
     ViewBag.Title = Model.Name;
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
-<div>
-    <div class="butt">
-        @Html.ActionLink("Добавить класс", "Create", "SchoolForm", new { SchoolId = Model.Id }, new { @class = "add" })
-    </div>
-    <br>
-    <div>
-        @Html.Action("List", "SchoolForm", new {SchoolId= Model.Id})
-    </div>
-</div>
-
 
 
