@@ -20,6 +20,8 @@ namespace schoolsSystems.Controllers
 
         public ActionResult Index( int SchoolId = 0 )
         {
+            ViewBag.SchoolId = SchoolId;
+            ViewBag.BodyTitle = "Новости";
             School school = db.School.FirstOrDefault(s => s.Id == SchoolId);
             ViewData.Add("school", school);
             List<News> list = db.News.Where(n => n.SchoolId == SchoolId).ToList();
