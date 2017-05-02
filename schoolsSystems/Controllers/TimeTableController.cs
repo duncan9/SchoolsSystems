@@ -33,7 +33,7 @@ namespace schoolsSystems.Controllers
         {
             School school = db.School.FirstOrDefault(s => s.Id == schoolId);
             ViewData.Add("school", school);
-            IEnumerable<TimeTable> timeTable = db.TimeTable.Where(tt => tt.SchoolId == schoolId && tt.SchoolFormId == schoolFormId);
+            IEnumerable<TimeTable> timeTable = db.TimeTable.Where(tt => tt.SchoolId == schoolId && tt.SchoolFormId == schoolFormId && tt.DayOfWeek == dayOfWeek);
             List<TimeTable> res = new List<TimeTable>();
             for (int i = 1; i < 10; i++)
             {

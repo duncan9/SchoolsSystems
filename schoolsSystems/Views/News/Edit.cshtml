@@ -1,0 +1,23 @@
+﻿@model schoolsSystems.Models.News
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
+}
+
+@using (Html.BeginForm("Edit", "News", FormMethod.Post))
+{
+
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(model => model.SchoolId)
+
+    <div class="editor-label">
+        Заголовок @Html.EditorFor(model => model.HeadText)
+    </div>
+    <div class="editor-label">
+        Текст новости @Html.EditorFor(model => model.NewsText)
+    </div>
+    <div>
+        <input type="submit" value="Сохранить" />
+    </div>
+}
+

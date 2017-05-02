@@ -1,0 +1,12 @@
+﻿@model IEnumerable<schoolsSystems.Models.News>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_SchoolLayout.cshtml";
+}
+
+@foreach (var s in Model)
+{
+<div>
+   @s.HeadText @s.NewsText
+</div>
+}

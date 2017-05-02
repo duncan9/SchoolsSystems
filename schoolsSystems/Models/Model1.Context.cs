@@ -33,5 +33,6 @@ namespace schoolsSystems.Models
         public DbSet<SchoolForm> SchoolForm { get; set; }
         public DbSet<Subject> Subject { get; set; }
         public DbSet<TimeTable> TimeTable { get; set; }
+        public DbSet<News> News { get; set; }
     }
 }

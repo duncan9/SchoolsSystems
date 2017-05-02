@@ -22,6 +22,8 @@
         <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7B5B524B" />
         <AssociationConnector Association="EMModel.FK__TimeTable__Subje__7C4F7684" />
         <AssociationConnector Association="EMModel.FK__Pupil__SchoolFor__01142BA1" />
+        <EntityTypeShape EntityType="EMModel.News" Width="1.5" PointX="3" PointY="4" />
+        <AssociationConnector Association="EMModel.FK__News__SchoolId__2BFE89A6" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

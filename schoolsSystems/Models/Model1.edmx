@@ -26,6 +26,15 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Letter" Type="nvarchar" MaxLength="2" Nullable="false" />
         </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SchoolId" Type="int" Nullable="false" />
+          <Property Name="NewsText" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="HeadText" Type="nvarchar" MaxLength="100" Nullable="false" />
+        </EntityType>
         <EntityType Name="Pupil">
           <Key>
             <PropertyRef Name="Id" />
@@ -72,6 +81,18 @@
           <Property Name="DayOfWeek" Type="int" Nullable="false" />
           <Property Name="SubjectId" Type="int" Nullable="false" />
         </EntityType>
+        <Association Name="FK__News__SchoolId__2BFE89A6">
+          <End Role="School" Type="Self.School" Multiplicity="1" />
+          <End Role="News" Type="Self.News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK__Pupil__SchoolFor__01142BA1">
           <End Role="SchoolForm" Type="Self.SchoolForm" Multiplicity="1" />
           <End Role="Pupil" Type="Self.Pupil" Multiplicity="*" />
@@ -184,11 +205,16 @@
           <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Form" EntityType="Self.Form" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="FormLetter" EntityType="Self.FormLetter" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Pupil" EntityType="Self.Pupil" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SchoolForm" EntityType="Self.SchoolForm" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Subject" EntityType="Self.Subject" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TimeTable" EntityType="Self.TimeTable" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__News__SchoolId__2BFE89A6" Association="Self.FK__News__SchoolId__2BFE89A6">
+            <End Role="School" EntitySet="School" />
+            <End Role="News" EntitySet="News" />
+          </AssociationSet>
           <AssociationSet Name="FK__Pupil__SchoolFor__01142BA1" Association="Self.FK__Pupil__SchoolFor__01142BA1">
             <End Role="SchoolForm" EntitySet="SchoolForm" />
             <End Role="Pupil" EntitySet="Pupil" />
@@ -241,6 +267,7 @@
           <NavigationProperty Name="Pupil" Relationship="EMModel.FK__Pupil__SchoolId__5DCAEF64" FromRole="School" ToRole="Pupil" />
           <NavigationProperty Name="SchoolForm" Relationship="EMModel.FK__SchoolFor__Schoo__75A278F5" FromRole="School" ToRole="SchoolForm" />
           <NavigationProperty Name="TimeTable" Relationship="EMModel.FK__TimeTable__Schoo__7A672E12" FromRole="School" ToRole="TimeTable" />
+          <NavigationProperty Name="News" Relationship="EMModel.FK__News__SchoolId__2BFE89A6" FromRole="School" ToRole="News" />
         </EntityType>
         <EntityContainer Name="EMEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="School" EntityType="Self.School" />
@@ -286,6 +313,11 @@
           <AssociationSet Name="FK__TimeTable__Subje__7C4F7684" Association="EMModel.FK__TimeTable__Subje__7C4F7684">
             <End Role="Subject" EntitySet="Subject" />
             <End Role="TimeTable" EntitySet="TimeTable" />
+          </AssociationSet>
+          <EntitySet Name="News" EntityType="EMModel.News" />
+          <AssociationSet Name="FK__News__SchoolId__2BFE89A6" Association="EMModel.FK__News__SchoolId__2BFE89A6">
+            <End Role="School" EntitySet="School" />
+            <End Role="News" EntitySet="News" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="City">
@@ -469,6 +501,28 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SchoolId" Type="Int32" Nullable="false" />
+          <Property Name="NewsText" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="HeadText" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="School" Relationship="EMModel.FK__News__SchoolId__2BFE89A6" FromRole="News" ToRole="School" />
+        </EntityType>
+        <Association Name="FK__News__SchoolId__2BFE89A6">
+          <End Type="EMModel.School" Role="School" Multiplicity="1" />
+          <End Type="EMModel.News" Role="News" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="School">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="News">
+              <PropertyRef Name="SchoolId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -545,6 +599,16 @@
                 <ScalarProperty Name="DayOfWeek" ColumnName="DayOfWeek" />
                 <ScalarProperty Name="LessonNumber" ColumnName="LessonNumber" />
                 <ScalarProperty Name="SchoolFormId" ColumnName="SchoolFormId" />
+                <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="News">
+            <EntityTypeMapping TypeName="EMModel.News">
+              <MappingFragment StoreEntitySet="News">
+                <ScalarProperty Name="HeadText" ColumnName="HeadText" />
+                <ScalarProperty Name="NewsText" ColumnName="NewsText" />
                 <ScalarProperty Name="SchoolId" ColumnName="SchoolId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>

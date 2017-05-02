@@ -3,9 +3,18 @@
     ViewBag.Title = "Ученики";
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
+
+<div>
+    <br>
+    <div>
+        @Html.ActionLink("Добавить класс", "Create", "SchoolForm", new { SchoolId = ViewBag.SchoolId }, new { @class = "add" })
+    </div>
+    <br>
+</div>
+
+
 @foreach (var sf in Model)
 {
-    <div>@Html.ActionLink(sf.Name, "Index", "Pupil", new { schoolId = @sf.SchoolId, schoolFormId = @sf.Id }, null)</div>
-
+    <div>@Html.ActionLink(sf.Name, "Index", "Pupil", null, new { schoolId = sf.SchoolId, schoolFormId = sf.Id })</div>
 }
 

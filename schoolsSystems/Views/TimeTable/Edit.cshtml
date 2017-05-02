@@ -1,11 +1,11 @@
 ﻿@model schoolsSystems.Models.DayOfTimeTable
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Редактирование";
     Layout = "~/Views/Shared/_SchoolLayout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2>Редактирование расписания</h2>
 @using (Html.BeginForm("Save","TimeTable",FormMethod.Post))
 {   
     @Html.HiddenFor(m=>m.SchoolId)

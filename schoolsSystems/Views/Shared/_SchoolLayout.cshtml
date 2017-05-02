@@ -18,7 +18,8 @@
 <body id="up">
     <div id="capMain">
     <div id="cap">
-        <h1 class="ah1">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home") @school.Name @school.City.name</h1>
+        <h1 class="ah1 ah1school">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home") @Html.ActionLink(school.Name, "Info", "School", new { id = school.Id }, new { @class = "h1school" })</h1>
+
     </div>
     </div>
     <div class="menu">
