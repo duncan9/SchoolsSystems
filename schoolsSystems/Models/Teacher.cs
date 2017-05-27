@@ -12,20 +12,18 @@ namespace schoolsSystems.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Subject
+    public partial class Teacher
     {
-        public Subject()
-        {
-            this.TimeTable = new HashSet<TimeTable>();
-            this.Teacher = new HashSet<Teacher>();
-            this.Teacher1 = new HashSet<Teacher>();
-        }
-    
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string First { get; set; }
+        public string Second { get; set; }
+        public string Last { get; set; }
+        public int SchoolId { get; set; }
+        public int Subject1Id { get; set; }
+        public Nullable<int> Subject2Id { get; set; }
     
-        public virtual ICollection<TimeTable> TimeTable { get; set; }
-        public virtual ICollection<Teacher> Teacher { get; set; }
-        public virtual ICollection<Teacher> Teacher1 { get; set; }
+        public virtual School School { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual Subject Subject1 { get; set; }
     }
 }

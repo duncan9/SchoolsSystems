@@ -18,6 +18,7 @@ namespace schoolsSystems.Controllers
         {
             return View();
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(SchoolForm schoolForm)
         {
             ViewBag.BodyTitle = "Добавить класс";
@@ -28,6 +29,7 @@ namespace schoolsSystems.Controllers
             }
             return RedirectToAction("Pupils","School",new {schoolId = schoolForm.SchoolId});
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Create(int SchoolId = 0, int SchoolFormId = 0)
         {
             School school = db.School.FirstOrDefault(s => s.Id == SchoolId);

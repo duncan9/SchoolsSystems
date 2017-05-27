@@ -38,6 +38,7 @@ namespace schoolsSystems.Controllers
             ViewBag.BodyTitle = school.Name;
             return View(school);
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(School school)
         {
             ViewBag.BodyTitle = "Добавить школу";
@@ -48,6 +49,7 @@ namespace schoolsSystems.Controllers
             }
             return RedirectToAction("Index");
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Create()
         {
             ViewBag.BodyTitle = "Добавить школу";

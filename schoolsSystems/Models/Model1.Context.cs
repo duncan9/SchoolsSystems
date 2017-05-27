@@ -25,14 +25,15 @@ namespace schoolsSystems.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public DbSet<School> School { get; set; }
         public DbSet<City> City { get; set; }
         public DbSet<Form> Form { get; set; }
-        public DbSet<Pupil> Pupil { get; set; }
         public DbSet<FormLetter> FormLetter { get; set; }
+        public DbSet<Pupil> Pupil { get; set; }
+        public DbSet<School> School { get; set; }
         public DbSet<SchoolForm> SchoolForm { get; set; }
         public DbSet<Subject> Subject { get; set; }
         public DbSet<TimeTable> TimeTable { get; set; }
+        public DbSet<Teacher> Teacher { get; set; }
         public DbSet<News> News { get; set; }
     }
 }

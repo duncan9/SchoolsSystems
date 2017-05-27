@@ -28,7 +28,7 @@ namespace schoolsSystems.Controllers
             ViewBag.schoolFormId = schoolFormId;
             return View(timeTable);
         }
-
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(int schoolId=0,int schoolFormId=0,int dayOfWeek=0 )
         {
             School school = db.School.FirstOrDefault(s => s.Id == schoolId);
@@ -43,6 +43,7 @@ namespace schoolsSystems.Controllers
                 else
                     res.Add(lesson);
             }
+            ViewBag.BodyTitle = "Редактирование расписание";
             ViewData.Add("subjects",db.Subject.ToList());
             return View(new DayOfTimeTable { SchoolId=schoolId,SchoolFormId=schoolFormId,listOfDay=res});
         }

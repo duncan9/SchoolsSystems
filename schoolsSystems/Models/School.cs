@@ -19,6 +19,7 @@ namespace schoolsSystems.Models
             this.Pupil = new HashSet<Pupil>();
             this.SchoolForm = new HashSet<SchoolForm>();
             this.TimeTable = new HashSet<TimeTable>();
+            this.Teacher = new HashSet<Teacher>();
             this.News = new HashSet<News>();
         }
     
@@ -30,6 +31,7 @@ namespace schoolsSystems.Models
         public virtual ICollection<Pupil> Pupil { get; set; }
         public virtual ICollection<SchoolForm> SchoolForm { get; set; }
         public virtual ICollection<TimeTable> TimeTable { get; set; }
+        public virtual ICollection<Teacher> Teacher { get; set; }
         public virtual ICollection<News> News { get; set; }
     }
 }
