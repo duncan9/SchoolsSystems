@@ -19,7 +19,7 @@
     <div id="capMain">
     <div id="cap">
         <h1 class="ah1 ah1school">@Html.ActionLink("СИСТЕМА ГОСУДАРСТВЕННЫХ УЧРЕЖДЕНИЙ", "Index", "Home") @Html.ActionLink(school.Name, "Info", "School", new { id = school.Id }, new { @class = "h1school" })</h1>
-
+        <div>@Html.Partial("_PartialLogin")</div>
     </div>
     </div>
     <div class="menu">

@@ -18,10 +18,10 @@ namespace schoolsSystems.Models
         public string FirsName { get; set; }
         public string LastName { get; set; }
         public string MiddleName { get; set; }
-        public int SchoolId { get; set; }
         public int SchoolFormId { get; set; }
+        public int SchoolId { get; set; }
     
-        public virtual School School { get; set; }
         public virtual SchoolForm SchoolForm { get; set; }
+        public virtual School School { get; set; }
     }
 }

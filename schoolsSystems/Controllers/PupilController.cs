@@ -24,6 +24,7 @@ namespace schoolsSystems.Controllers
             ViewBag.BodyTitle = "Список учеников";
             return View(pupils);
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(Pupil pupil)
         {
             if (ModelState.IsValid)
@@ -33,6 +34,7 @@ namespace schoolsSystems.Controllers
             }
             return RedirectToAction("Index", new {SchoolId=pupil.SchoolId,SchoolFormId=pupil.SchoolFormId });
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Create(int schoolId=0,int SchoolFormId=0)
         {
             School school = db.School.FirstOrDefault(s => s.Id == schoolId);

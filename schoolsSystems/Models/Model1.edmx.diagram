@@ -4,27 +4,31 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="69244595a8324eb580c629ebbc5303a7" Name="Diagram1">
-        <EntityTypeShape EntityType="EMModel.School" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMModel.City" Width="1.5" PointX="3.25" PointY="1" />
-        <AssociationConnector Association="EMModel.FK__School__CityId__37A5467C" />
-        <EntityTypeShape EntityType="EMModel.Form" Width="1.5" PointX="5.125" PointY="0.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EMModel.Pupil" Width="1.5" PointX="7.375" PointY="1.25" />
-        <AssociationConnector Association="EMModel.FK__Pupil__SchoolId__5DCAEF64" />
-        <EntityTypeShape EntityType="EMModel.FormLetter" Width="1.5" PointX="6.625" PointY="4.5" />
-        <EntityTypeShape EntityType="EMModel.SchoolForm" Width="1.5" PointX="9.25" PointY="0.625" />
-        <EntityTypeShape EntityType="EMModel.Subject" Width="1.5" PointX="8.875" PointY="4.5" />
-        <EntityTypeShape EntityType="EMModel.TimeTable" Width="1.5" PointX="11.125" PointY="0.875" />
-        <AssociationConnector Association="EMModel.FK__SchoolFor__FormI__76969D2E" />
-        <AssociationConnector Association="EMModel.FK__SchoolFor__FormL__778AC167" />
-        <AssociationConnector Association="EMModel.FK__SchoolFor__Schoo__75A278F5" />
-        <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7A672E12" />
-        <AssociationConnector Association="EMModel.FK__TimeTable__Schoo__7B5B524B" />
-        <AssociationConnector Association="EMModel.FK__TimeTable__Subje__7C4F7684" />
-        <AssociationConnector Association="EMModel.FK__Pupil__SchoolFor__01142BA1" />
-        <EntityTypeShape EntityType="EMModel.News" Width="1.5" PointX="3" PointY="4" />
-        <AssociationConnector Association="EMModel.FK__News__SchoolId__2BFE89A6" />
-        </Diagram>
+      <Diagram DiagramId="4c7ba18ca6ca4dbe852ba43ac985a6db" Name="Diagram1">
+        <EntityTypeShape EntityType="Models.City" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.Form" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.FormLetter" Width="1.5" PointX="6" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.Pupil" Width="1.5" PointX="5.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.School" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.SchoolForm" Width="1.5" PointX="8.25" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.Subject" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Models.TimeTable" Width="1.5" PointX="10.5" PointY="3.375" IsExpanded="true" />
+        <AssociationConnector Association="Models.FK__School__CityId__37A5467C" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__SchoolFor__FormI__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__SchoolFor__FormL__778AC167" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__Pupil__SchoolFor__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__Pupil__SchoolId__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__SchoolFor__Schoo__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__TimeTable__Schoo__160F4887" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__TimeTable__Schoo__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="Models.FK__TimeTable__Subje__17F790F9" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="Models.Teacher" Width="1.5" PointX="1.125" PointY="0.875" />
+        <AssociationConnector Association="Models.FK__Teacher__SchoolI__29221CFB" />
+        <AssociationConnector Association="Models.FK__Teacher__Subject__2A164134" />
+        <AssociationConnector Association="Models.FK__Teacher__Subject__2B0A656D" />
+        <EntityTypeShape EntityType="Models.News" Width="1.5" PointX="5.25" PointY="9.875" />
+        <AssociationConnector Association="Models.FK__News__SchoolId__3C34F16F" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

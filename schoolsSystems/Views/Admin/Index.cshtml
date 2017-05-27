@@ -1,0 +1,15 @@
+﻿@model IEnumerable<schoolsSystems.Models.ApplicationUser>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <h1>Список юзеров</h1>
+    @foreach (var user in Model)
+    {
+       <div>
+           Id <b>@user.Id</b>
+           Login <b>@user.Name</b>
+       </div> 
+        <br>
+    }
+    
+

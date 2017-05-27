@@ -27,6 +27,7 @@ namespace schoolsSystems.Controllers
             List<News> list = db.News.Where(n => n.SchoolId == SchoolId).ToList();
             return View(list);
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Edit(News news)
         {
             if (ModelState.IsValid)
@@ -36,6 +37,7 @@ namespace schoolsSystems.Controllers
             }
             return RedirectToAction("Index", new { SchoolId = news.SchoolId });
         }
+        [Authorize(Roles = "admin")]
         public ActionResult Create(int schoolId = 0)
         {
             School school = db.School.FirstOrDefault(s => s.Id == schoolId);
